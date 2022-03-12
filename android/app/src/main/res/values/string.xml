@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name">barbershops_booking</string>
+
+
+    <string name="facebook_app_id">926120661423433</string>
+    <string name="fb_login_protocol_scheme">fb926120661423433</string>
+    <string name="facebook_client_token">c287c40337c146de95bebdec25aeb40a</string>
+
+
+</resources>
