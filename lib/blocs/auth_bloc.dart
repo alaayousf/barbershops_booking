@@ -58,9 +58,38 @@ class AuthenticationBloc
         }
 
         
+      }else if(event is GetALLServeis){
+      
+ QuerySnapshot<Map<String, dynamic>>  users;
+ List<QueryDocumentSnapshot<Map<String, dynamic>>> datas;
+    emit(LodingGertSevic());
+    users=  await FirebaseFirestore.instance.collection('Services').get();
+    datas=users.docs;
+    return emit(ResevALLServis(datas));
+        
       }
     });
   }
+
+
+
+
+
+ 
+  Stream<AuthenticationState> eefrg() async* {
+
+    Future<QuerySnapshot<Map<String, dynamic>>>  users;
+    List<QueryDocumentSnapshot<Map<String, dynamic>>> datas;
+
+    users= FirebaseFirestore.instance.collection('Services').get();
+
+    yield LodingGertSevic();
+
+ 
+    
+  }
+
+
 
   // @override
   // Stream<AuthenticationState> mapEventToState(AuthenticationEvent event) async* {

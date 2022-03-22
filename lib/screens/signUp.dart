@@ -129,6 +129,8 @@ class _SignUpSeccrne extends State<SignUp> {
     super.initState();
   }
 
+ 
+
 
   /* */
 
@@ -191,19 +193,19 @@ class _SignUpSeccrne extends State<SignUp> {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Full name",
+                               const Text("Full name",
                                     style: TextStyle(
                                       color: Colors.white54,
                                       fontFamily: 'OpenSans',
                                     )),
-                                SizedBox(height: 10.0),
+                               const SizedBox(height: 10.0),
                                 TextFormField(
                                     validator: (value) =>
                                         valedFirstName(value!),
                                     onSaved: (newvalue) =>
                                         saveForstName(newvalue),
                                     //عدم اضهار النص
-                                    style: TextStyle(
+                                    style:const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'OpenSans',
@@ -212,14 +214,14 @@ class _SignUpSeccrne extends State<SignUp> {
                                     decoration: InputDecoration(
                                         fillColor: Color(0xFF3D5A58),
                                         filled: true,
-                                        hintStyle: TextStyle(
+                                        hintStyle:const TextStyle(
                                             fontSize: 14.0,
                                             color: Colors.white30),
-                                        prefixIcon: Icon(
+                                        prefixIcon:const Icon(
                                           Icons.person,
                                           color: Colors.white,
                                         ),
-                                        contentPadding: EdgeInsets.only(
+                                        contentPadding:const EdgeInsets.only(
                                             left: 15,
                                             top: 20,
                                             right: 15,
@@ -230,34 +232,34 @@ class _SignUpSeccrne extends State<SignUp> {
                                                 BorderRadius.circular(10)),
                                         hintText: "Enter your Full name")),
                               ]),
-                          SizedBox(height: 30.0),
-                          Text(
+                         const SizedBox(height: 30.0),
+                         const Text(
                             "Emaile",
                             style: TextStyle(
                               color: Colors.white54,
                               fontFamily: 'OpenSans',
                             ),
                           ),
-                          SizedBox(
+                         const SizedBox(
                             height: 10.0,
                           ),
                           TextFormField(
                             validator: (value) => valedationEmaile(value!),
                             onSaved: (newvalue) => saveEmaile(newvalue),
                             keyboardType: TextInputType.emailAddress,
-                            style: TextStyle(
+                            style:const TextStyle(
                               color: Colors.white,
                             ),
                             decoration: InputDecoration(
-                              fillColor: Color(0xFF3D5A58),
+                              fillColor: const Color(0xFF3D5A58),
                               filled: true,
-                              hintStyle: TextStyle(
+                              hintStyle:const TextStyle(
                                   fontSize: 14.0, color: Colors.white30),
-                              prefixIcon: Icon(
+                              prefixIcon:const Icon(
                                 Icons.email,
                                 color: Colors.white,
                               ),
-                              contentPadding: EdgeInsets.only(
+                              contentPadding:const EdgeInsets.only(
                                   left: 15, top: 20, right: 15, bottom: 20),
                               border: OutlineInputBorder(
                                   borderSide: BorderSide.none,
@@ -266,7 +268,7 @@ class _SignUpSeccrne extends State<SignUp> {
                             ),
                           )
                         ]),
-                    SizedBox(
+               const     SizedBox(
                       height: 30.0,
                     ),
                     Column(
@@ -280,89 +282,89 @@ class _SignUpSeccrne extends State<SignUp> {
                           if (state is AuthenticationCreateSuccess) {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Home()),
+                              MaterialPageRoute(builder: (context) =>const Home()),
                             );
                           }
                         },
-                        child: Center()),
+                        child:const Center()),
 
 
 
-                          Text("Password",
+                         const Text("Password",
                               style: TextStyle(
                                 color: Colors.white54,
                                 fontFamily: 'OpenSans',
                               )),
-                          SizedBox(height: 10.0),
+                         const SizedBox(height: 10.0),
                           TextFormField(
                               validator: (value) => valedationPassworde(value!),
                               onSaved: (newvalue) => savePassworde(newvalue),
                               obscureText: true,
-                              style: TextStyle(
+                              style:const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'OpenSans',
                               ),
                               keyboardType: TextInputType.name,
                               decoration: InputDecoration(
-                                  fillColor: Color(0xFF3D5A58),
+                                  fillColor: const Color(0xFF3D5A58),
                                   filled: true,
                                   border: OutlineInputBorder(
                                       borderSide: BorderSide.none,
                                       borderRadius: BorderRadius.circular(10)),
-                                  hintStyle: TextStyle(
+                                  hintStyle:const TextStyle(
                                       fontSize: 14.0, color: Colors.white30),
-                                  prefixIcon: Icon(
+                                  prefixIcon:const Icon(
                                     Icons.lock,
                                     color: Colors.white,
                                   ),
-                                  contentPadding: EdgeInsets.only(
+                                  contentPadding:const EdgeInsets.only(
                                       left: 15, top: 20, right: 15, bottom: 20),
                                   hintText: "Enter your password")),
                         ]),
 
-                    SizedBox(
+                   const SizedBox(
                       height: 30.0,
                     ),
 
                     Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text("Phone numper",
+                        const  Text("Phone numper",
                               style: TextStyle(
                                 color: Colors.white54,
                                 fontFamily: 'OpenSans',
                               )),
-                          SizedBox(height: 10.0),
+                          const SizedBox(height: 10.0),
                           TextFormField(
                               validator: (value) => valedetphoneNumper(value!),
                               onSaved: (newvalue) => savephoneNumper(newvalue),
                               //عدم اضهار النص
 
-                              style: TextStyle(
+                              style:const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'OpenSans',
                               ),
                               keyboardType: TextInputType.number,
                               decoration: InputDecoration(
-                                  fillColor: Color(0xFF3D5A58),
+                                  fillColor: const Color(0xFF3D5A58),
                                   filled: true,
                                   border: OutlineInputBorder(
                                       borderSide: BorderSide.none,
                                       borderRadius: BorderRadius.circular(10)),
-                                  hintStyle: TextStyle(
+                                  hintStyle:const TextStyle(
                                       fontSize: 14.0, color: Colors.white30),
-                                  prefixIcon: Icon(
+                                  prefixIcon:const Icon(
                                     Icons.phone_android_rounded,
                                     color: Colors.white,
                                   ),
-                                  contentPadding: EdgeInsets.only(
+                                  contentPadding:const EdgeInsets.only(
                                       left: 15, top: 20, right: 15, bottom: 20),
                                   hintText: "Enter your Phone numper")),
                         ]),
 
-                    SizedBox(
+                 const   SizedBox(
                       height: 30,
                     ),
 
@@ -371,7 +373,7 @@ class _SignUpSeccrne extends State<SignUp> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Gender",
+                         const Text("Gender",
                               style: TextStyle(
                                 color: Colors.white54,
                                 fontFamily: 'OpenSans',
@@ -380,7 +382,7 @@ class _SignUpSeccrne extends State<SignUp> {
                             children: [
                               Expanded(
                                   child: RadioListTile(
-                                      activeColor: Color(0xFFFF6F3D),
+                                      activeColor:const Color(0xFFFF6F3D),
                                       title: const Text(
                                         "male",
                                         style: TextStyle(
@@ -397,8 +399,8 @@ class _SignUpSeccrne extends State<SignUp> {
                                       })),
                               Expanded(
                                   child: RadioListTile(
-                                      activeColor: Color(0xFFFF6F3D),
-                                      selectedTileColor: Color(0xFFFF6F3D),
+                                      activeColor: const Color(0xFFFF6F3D),
+                                      selectedTileColor: const Color(0xFFFF6F3D),
                                       title: const Text(
                                         "female",
                                         style: TextStyle(
@@ -423,7 +425,7 @@ class _SignUpSeccrne extends State<SignUp> {
 
                     Theme(
                       data: ThemeData(unselectedWidgetColor: Colors.white),
-                      child: Row(children: [
+                      child: Row(children: const[
                         // Checkbox(
                         //     value: _ischeck,
                         //     activeColor: Colors.white,
@@ -444,9 +446,9 @@ class _SignUpSeccrne extends State<SignUp> {
                     ),
                     Container(
                       width: double.infinity,
-                      padding: EdgeInsets.symmetric(vertical: 25.0),
+                      padding:const EdgeInsets.symmetric(vertical: 25.0),
                       child: RaisedButton(
-                          child: Text(
+                          child:const Text(
                             "Sign In",
                             style: TextStyle(color: Color(0xFF526C6A)),
                           ),
@@ -454,10 +456,10 @@ class _SignUpSeccrne extends State<SignUp> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)),
                           elevation: 5.0,
-                          padding: EdgeInsets.all(15),
+                          padding:const EdgeInsets.all(15),
                           onPressed: () async {
                             svaeFormeKey();
-                            log(this.emaile);
+                            log(emaile);
                             log(password);
                             log(phoneNumper);
                             log(firstName);
@@ -485,7 +487,7 @@ class _SignUpSeccrne extends State<SignUp> {
                             }
                           }),
                     ),
-                    Text(
+                   const Text(
                       "-OR-",
                       style: TextStyle(
                         color: Colors.white,
@@ -494,8 +496,8 @@ class _SignUpSeccrne extends State<SignUp> {
                       ),
                     ),
                     Container(
-                        margin: EdgeInsets.symmetric(vertical: 15),
-                        child: Text(
+                        margin:const EdgeInsets.symmetric(vertical: 15),
+                        child:const Text(
                           "Sing in whid",
                           style: TextStyle(
                             color: Colors.white54,
@@ -506,13 +508,13 @@ class _SignUpSeccrne extends State<SignUp> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          margin: EdgeInsets.all(10),
+                          margin:const EdgeInsets.all(10),
                           height: 60.0,
                           width: 60.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             color: Colors.white,
-                            boxShadow: [
+                            boxShadow:const[
                               BoxShadow(
                                 color: Colors.black12,
                                 blurRadius: 6.0,
@@ -526,13 +528,13 @@ class _SignUpSeccrne extends State<SignUp> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.all(10),
+                          margin:const EdgeInsets.all(10),
                           height: 60.0,
                           width: 60.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             color: Colors.white,
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 color: Colors.black12,
                                 blurRadius: 6.0,
@@ -540,7 +542,7 @@ class _SignUpSeccrne extends State<SignUp> {
                               ),
                             ],
                           ),
-                          child: Icon(
+                          child:const Icon(
                             Icons.gesture,
                             color: Colors.green,
                           ),
@@ -555,8 +557,8 @@ class _SignUpSeccrne extends State<SignUp> {
                         );
                       },
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
-                        child: Text(
+                        margin: const EdgeInsets.symmetric(vertical: 20),
+                        child:const Text(
                           "I Have Accounr?",
                           textDirection: TextDirection.ltr,
                           style: TextStyle(

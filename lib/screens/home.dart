@@ -1,5 +1,8 @@
 import 'dart:developer';
 
+import 'package:barbershops_booking/export.dart';
+import 'package:barbershops_booking/providers/ListTimeProvider.dart';
+import 'package:barbershops_booking/providers/selctedProvider.dart';
 import 'package:barbershops_booking/widget/barbers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,7 +10,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:barbershops_booking/widget/service.dart';
-
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -19,24 +22,27 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(
-              width:double.infinity,
-              height: 200,
-              child: Service()),
-
-              Text("dddddd"),
-            Expanded(
-                
-              child: Barbers())
-          ],
-        ),
+        child:  
+            MultiProvider(
+              providers: [
+                ChangeNotifierProvider(
+                    create: (BuildContext context) => SelctedProvider(-1)),
+      
+              ],
+              child: Column(
+                children: [
+                  SizedBox(
+                      width: double.infinity, height: 200, child: Service()),
+               Expanded(child: Barbers())
+                ],
+              ),
+            ),
+           
+          
       ),
     );
   }

@@ -1,85 +1,42 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/button_view.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// class UserInformation extends StatefulWidget {
+//   @override
+//     _UserInformationState createState() => _UserInformationState();
+// }
 
-class Resource{
+// class _UserInformationState extends State<UserInformation> {
+//   final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance
+//             .collection('Barber Shop')
+//             .doc(event.id)
+//             .collection('Reservation')
+//             .where('day', isGreaterThanOrEqualTo: _start)
+//             .where('day',isLessThanOrEqualTo: _end).snapshots();
 
-  final Status status;
-  Resource({required this.status});
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return StreamBuilder<QuerySnapshot>(
+//       stream: _usersStream,
+//       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+//         if (snapshot.hasError) {
+//           return Text('Something went wrong');
+//         }
 
-enum Status {
-  Success,
-  Error,
-  Cancelled
-}
+//         if (snapshot.connectionState == ConnectionState.waiting) {
+//           return Text("Loading");
+//         }
 
-
-
-class Test extends StatefulWidget {
-  const Test({Key? key}) : super(key: key);
-
-  @override
-  _TestState createState() => _TestState();
-}
-
-class _TestState extends State<Test> {
-  @override
-  Widget build(BuildContext context) {
-    return       Scaffold(
-        appBar: AppBar(
-          title: Text(""),
-        ),
-        body: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <
-              Widget>[
-            Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text("Meet Up",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      fontFamily: 'Roboto')),
-            ),
-            Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SignInButton(
-                  Buttons.Email,
-                  text: "Sign up with Email",
-                  onPressed: () {
-
-                  },
-                )),
-            Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SignInButton(
-                  Buttons.Google,
-                  text: "Sign up with Google",
-                  onPressed: () {},
-                )),
-            Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SignInButton(
-                  Buttons.Twitter,
-                  text: "Sign up with Twitter",
-                  onPressed: () {},
-                )),
-            Padding(
-                padding: EdgeInsets.all(10.0),
-                child: GestureDetector(
-                    child: Text("Log In Using Email",
-                        style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            color: Colors.blue)),
-                    onTap: () {
-
-                    })),
-
-
-
-          ]),
-        ));
-
-  }
-}
+//         return ListView(
+//           children: snapshot.data!.docs.map((DocumentSnapshot document) {
+//           Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+//             return ListTile(
+//               title: Text(data['d']),
+              
+//             );
+//           }).toList(),
+//         );
+//       },
+//     );
+//   }
+// }

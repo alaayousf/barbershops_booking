@@ -1,5 +1,9 @@
+import 'package:barbershops_booking/blocs/GetDataBloc/Getonedatabloc.dart';
+import 'package:barbershops_booking/blocs/GetDataBloc/getdata_bloc.dart';
+import 'package:barbershops_booking/providers/listTimeProvider.dart';
 import 'package:barbershops_booking/screens/Home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'export.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -32,8 +36,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AuthenticationBloc>(
-        create: (context) => AuthenticationBloc(userRepository:UserRepository(firebaseAuth:auth )),
+    return MultiBlocProvider(
+        providers: [
+
+            BlocProvider(
+          create: (context) => AuthenticationBloc(userRepository:UserRepository(firebaseAuth:auth))),
+       
+       
+            BlocProvider(
+          create: (context) => GetAllDataBloc()),
+
+          BlocProvider(
+          create: (context) => GetOneDataBluc()),
+
+          
+       
+        ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -44,6 +62,11 @@ class MyApp extends StatelessWidget {
     );
   }
 } 
+
+ 
+/*
+ AuthenticationBloc(userRepository:UserRepository(firebaseAuth:auth ),
+*/
 
 
 

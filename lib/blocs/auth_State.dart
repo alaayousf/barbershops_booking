@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -33,3 +34,17 @@ class AuthenticationCreateSuccess extends AuthenticationState {
 
 
 class AuthenticationSingUpevent extends AuthenticationState {}
+
+
+
+class ResevALLServis extends AuthenticationState {
+
+  final  List<QueryDocumentSnapshot<Map<String, dynamic>>> datas;
+
+  ResevALLServis(this.datas);
+}
+
+class LodingGertSevic extends AuthenticationState {}
+
+
+

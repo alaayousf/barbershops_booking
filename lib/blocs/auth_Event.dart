@@ -24,3 +24,6 @@ class AuthenticationLoginEvent extends AuthenticationEvent {
 
   
 }
+
+
+class GetALLServeis extends AuthenticationEvent {}
