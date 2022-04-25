@@ -29,6 +29,14 @@ class ResevALLServis extends GetDataState {
 class LodingGertSevic extends GetDataState {}
 
 
+class Loding extends GetDataState {}
+class Success extends GetDataState {}
+class Filde extends GetDataState {}
+
+
+
+
+
 class GetMyReservationState extends GetDataState {
 
   QueryDocumentSnapshot<Map<String, dynamic>> myReservationState;

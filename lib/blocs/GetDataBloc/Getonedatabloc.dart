@@ -16,7 +16,7 @@ class GetOneDataBluc extends Bloc<GetDataEvent, GetDataState> {
         QuerySnapshot<Map<String, dynamic>> users;
         // DocumentReference<Map<String, dynamic>> datas;
 
-        emit(LodingGertSevic());
+        emit(Loding());
 
         newTime = event.time;
         var _now = event.time;
@@ -55,10 +55,11 @@ class GetOneDataBluc extends Bloc<GetDataEvent, GetDataState> {
         // });
 
       } else if (event is AddNewReservation) {
+        emit(Loding());
         var datas =
             await FirebaseFirestore.instance.collection('ALLReservation');
 
-        datas.where('IDPerson', isEqualTo: event.iDPerson).get().then((value) {
+        await datas.where('IDPerson', isEqualTo: event.iDPerson).get().then((value) {
           log('if found ${value.docs.length}');
 
           if (value.docs.isEmpty) {
@@ -69,11 +70,17 @@ class GetOneDataBluc extends Bloc<GetDataEvent, GetDataState> {
                   'day': event.day,
                   'r': 10
                 })
-                .then((value) => log("add succsess ALLReservation"))
+                .then((value) {
+              emit(Success());
+            })
                 .catchError(
-                    (error) => print("Failed to add ALLReservation: $error"));
+                    (error){
+                      emit(Filde());
+                    });
           } else {
             log("يوجدحجز مسبق");
+            emit(Filde());
+
           }
         });
 

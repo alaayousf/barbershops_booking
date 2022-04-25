@@ -57,6 +57,10 @@ class _ReservationState extends State<Reservation> {
                 DateTime(_end.year, _end.month, _end.day, 23, 59, 59))
         .snapshots();
 
+
+
+
+
     return Scaffold(
       appBar: AppBar(title:const Text("your Order")),
       body: Center(
@@ -150,33 +154,102 @@ class _ReservationState extends State<Reservation> {
                         }),
                   ),
                 );
-              } else {
+              } else if(state is Loding) {
                 return Text("Loding");
+              }else if(state is Success){
+                return Text("Success");
+              }else if(state is Filde){
+                return Text("يوجد حجز مسبق لايمكن حجز اكتر من مرة في نفس الوقت ");
+              }else{
+                return Text("retry");
+
               }
             }),
             ElevatedButton(
                 onPressed: () {
-                  if (selectedindex != -1) {
-                    var ind = selectedindex;
-                    var idBerber = widget.barbers.id;
-                    var Iduser = auth.currentUser!.uid;
 
-                    var day = context.read<GetOneDataBluc>().newTime.day;
-                    var month = context.read<GetOneDataBluc>().newTime.month;
-                    var year = context.read<GetOneDataBluc>().newTime.year;
+                 showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('AlertDialog Title'),
+                      content: const Text('AlertDialog description'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () {
 
-                    log('day/t $day $idBerber $Iduser $ind ');
-                    DateTime(DateTime.now().year, day, ind);
-                    var createday = DateTime(year, month, day, ind, 0);
-                    //log('create time $createday');
+                            if (selectedindex != -1) {
+                              var ind = selectedindex;
+                              var idBerber = widget.barbers.id;
+                              var Iduser = auth.currentUser!.uid;
 
-                    //log('day time $time');
-                    log(' hoer $createday');
+                              var day = context.read<GetOneDataBluc>().newTime.day;
+                              var month = context.read<GetOneDataBluc>().newTime.month;
+                              var year = context.read<GetOneDataBluc>().newTime.year;
 
-                    bloc!.add(AddNewReservation(Iduser, idBerber, createday));
-                  }
+                              log('day/t $day $idBerber $Iduser $ind ');
+                              DateTime(DateTime.now().year, day, ind);
+                              var createday = DateTime(year, month, day, ind, 0);
+                              //log('create time $createday');
+
+                              //log('day time $time');
+                              log(' hoer $createday');
+
+                              bloc!.add(AddNewReservation(Iduser, idBerber, createday));
+                            }
+
+                            Navigator.pop(context, 'OK');
+                          },
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    ),
+                  ) ;
+
+
+
+
                 },
-                child: Text("Booking"))
+                child: Text("Booking")),
+
+            // BlocConsumer<GetOneDataBluc, GetDataState>(
+            //     listener: (context, state) {
+            //       if(state is Loding){
+            //         log('Loding');
+            //       }else{
+            //         log('Success');
+            //
+            //
+            //
+            //         setState(() {
+            //
+            //         });
+            //       }
+            //     },
+            //     builder: (context, state) {
+            //
+            //       if(state is Loding){
+            //         return Container(
+            //           width: 10,
+            //           height: 10,
+            //           color: Colors.red,
+            //         );
+            //       }else{
+            //
+            //         return Container(
+            //           width: 10,
+            //           height: 10,
+            //           color: Colors.teal,
+            //         );
+            //       }
+            //
+            //     }
+            // )
+
+
           ],
         ),
       ),
