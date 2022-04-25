@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:barbershops_booking/export.dart';
 import 'package:barbershops_booking/providers/ListTimeProvider.dart';
 import 'package:barbershops_booking/providers/selctedProvider.dart';
+import 'package:barbershops_booking/screens/myRservation.dart';
 import 'package:barbershops_booking/widget/barbers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -25,46 +26,34 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MyRservation()),
+            );
+          }, icon: Icon(Icons.account_circle))
+        ],
+      ),
       body: SafeArea(
-        child:  
-            MultiProvider(
-              providers: [
-                ChangeNotifierProvider(
-                    create: (BuildContext context) => SelctedProvider(-1)),
-      
-              ],
-              child: Column(
-                children: [
-                  SizedBox(
-                      width: double.infinity, height: 200, child: Service()),
-               Expanded(child: Barbers())
-                ],
-              ),
-            ),
-           
-          
+        child: MultiProvider(
+          providers: [
+            ChangeNotifierProvider(
+                create: (BuildContext context) => SelctedProvider(-1)),
+          ],
+          child: Column(
+            children: [
+              SizedBox(width: double.infinity, height: 200, child: Service()),
+              Expanded(child: Barbers())
+            ],
+          ),
+        ),
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 
@@ -97,8 +86,6 @@ Column(
           ),
 
  */
-
-
 
 // class DemoApp extends StatefulWidget {
 //   @override
@@ -161,12 +148,3 @@ Column(
 //     );
 //   }
 // }
-
-
-
-
-
-
-
-
-

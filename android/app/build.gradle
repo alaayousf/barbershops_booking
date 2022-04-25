@@ -69,4 +69,5 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
 }
