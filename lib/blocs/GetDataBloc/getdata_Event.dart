@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class GetDataEvent extends Equatable {
@@ -12,7 +11,20 @@ class GetALLBarbers extends GetDataEvent {}
 
 
 
+
+
 class GetALLServeis extends GetDataEvent {}
+
+
+class SarchEvetn extends GetDataEvent {
+  String sarshKey;
+  SarchEvetn(this.sarshKey);
+}
+
+
+
+
+
 
 class GetOneServeis extends GetDataEvent {
   String id;
@@ -48,6 +60,8 @@ class AddNewReservation extends GetDataEvent {
   AddNewReservation(this.iDPerson,this.iDberBer,this.day);
 
 }
+
+
 
 
 

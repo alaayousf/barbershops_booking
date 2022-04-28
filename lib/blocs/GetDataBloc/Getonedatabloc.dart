@@ -108,6 +108,10 @@ class GetOneDataBluc extends Bloc<GetDataEvent, GetDataState> {
         });
 
 
+
+
+
+
             //delete my resrvation
           }else if(event is DeleteMyReservation){
 
@@ -124,6 +128,35 @@ class GetOneDataBluc extends Bloc<GetDataEvent, GetDataState> {
 
           })
           .catchError((error) => print("Failed to delete user: $error"));
+
+
+
+
+
+        //get berber search
+          }else if(event is SarchEvetn){
+
+        log('this is SarchEvetn evnet');
+
+
+        emit(LodingSaech());
+
+        QuerySnapshot<Map<String, dynamic>> users;
+        List<QueryDocumentSnapshot<Map<String, dynamic>>> barbers;
+
+        log(event.sarshKey);
+
+
+        await FirebaseFirestore.instance.collection('Barber Shop')
+            .where("shopName", isGreaterThanOrEqualTo: event.sarshKey).get().then((value){
+
+          log('after then');
+
+
+          barbers = value.docs;
+          emit(SearchState(barbers));
+        });
+
 
 
 

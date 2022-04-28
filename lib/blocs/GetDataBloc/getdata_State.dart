@@ -36,6 +36,11 @@ class Filde extends GetDataState {}
 
 
 
+class LodingSaech extends GetDataState {}
+
+
+
+
 
 class GetMyReservationState extends GetDataState {
 
@@ -50,6 +55,18 @@ class NOGetMyReservationState extends GetDataState {}
 
 
 class DeleteState extends GetDataState {}
+
+
+
+//لي ارجاع الكود لي عملية البحت
+class SearchState extends GetDataState {
+  List<QueryDocumentSnapshot<Map<String, dynamic>>> barbers;
+
+  SearchState(this.barbers);
+
+
+}
+
 
 
 
