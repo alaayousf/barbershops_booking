@@ -42,6 +42,8 @@ class AuthenticationBloc
           }
         }
       } else if (event is AuthenticationLoginEvent) {
+
+        log('tesy AuthenticationLoginEvent');
         try {
           UserCredential userCredential = await FirebaseAuth.instance
               .signInWithEmailAndPassword(

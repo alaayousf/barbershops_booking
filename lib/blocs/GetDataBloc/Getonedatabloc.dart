@@ -3,6 +3,8 @@ import 'package:barbershops_booking/blocs/GetDataBloc/getdata_Event.dart';
 import 'package:barbershops_booking/blocs/GetDataBloc/getdata_State.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 //import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -144,18 +146,33 @@ class GetOneDataBluc extends Bloc<GetDataEvent, GetDataState> {
         QuerySnapshot<Map<String, dynamic>> users;
         List<QueryDocumentSnapshot<Map<String, dynamic>>> barbers;
 
+
         log(event.sarshKey);
 
 
-        await FirebaseFirestore.instance.collection('Barber Shop')
-            .where("shopName", isGreaterThanOrEqualTo: event.sarshKey).get().then((value){
 
-          log('after then');
+        await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high).then((position) async{
+
+         log("ssrrerererererer ${position.latitude}");
+         log('ssrrerererererer ${position.longitude}');
+
+         await FirebaseFirestore.instance.collection('Barber Shop')
+             .where("shopName", isGreaterThanOrEqualTo: event.sarshKey).get().then((value){
+
+           log('after then');
 
 
-          barbers = value.docs;
-          emit(SearchState(barbers));
+           barbers = value.docs;
+           emit(SearchState(barbers,LatLng(position.latitude,position.longitude)));
+         });
+
+
         });
+
+
+
+
+
 
 
 

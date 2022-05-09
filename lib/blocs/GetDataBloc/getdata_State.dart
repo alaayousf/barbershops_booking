@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 abstract class GetDataState extends Equatable {
  
@@ -62,7 +63,9 @@ class DeleteState extends GetDataState {}
 class SearchState extends GetDataState {
   List<QueryDocumentSnapshot<Map<String, dynamic>>> barbers;
 
-  SearchState(this.barbers);
+  LatLng position;
+
+  SearchState(this.barbers,this.position);
 
 
 }
